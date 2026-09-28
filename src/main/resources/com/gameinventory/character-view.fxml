@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.gameinventory.controllers.CharacterController"
+      spacing="12" style="-fx-padding: 24;">
+
+    <HBox spacing="12" alignment="CENTER_LEFT">
+        <Button text="← Назад" onAction="#onBack"/>
+        <Label fx:id="headerLabel"
+               style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+    </HBox>
+
+    <TableView fx:id="slotsTable" prefHeight="400">
+        <columns>
+            <TableColumn fx:id="slotNumberColumn" text="Слот"     prefWidth="80"/>
+            <TableColumn fx:id="itemNameColumn"   text="Предмет"  prefWidth="320"/>
+            <TableColumn fx:id="qualityColumn"    text="Качество" prefWidth="160"/>
+            <TableColumn fx:id="quantityColumn"   text="Кол-во"   prefWidth="100"/>
+            <TableColumn fx:id="equippedColumn"   text="Экип."    prefWidth="80"/>
+        </columns>
+    </TableView>
+
+    <HBox spacing="8" alignment="CENTER_LEFT">
+        <ComboBox fx:id="itemComboBox" promptText="Предмет" prefWidth="320"/>
+        <TextField fx:id="quantityField" promptText="Кол-во" prefWidth="100"/>
+        <Button text="Положить"     onAction="#onAddItem"/>
+        <Button text="Экипировать"  onAction="#onEquip"/>
+        <Button text="Снять"        onAction="#onUnequip"/>
+        <Button text="Очистить"     onAction="#onClear"/>
+        <Button text="Удалить слот" onAction="#onDelete"/>
+    </HBox>
+
+    <Label fx:id="messageLabel" text=""
+           style="-fx-text-fill: #b00020;"/>
+</VBox>
